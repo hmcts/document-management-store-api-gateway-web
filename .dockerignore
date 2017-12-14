@@ -1,0 +1,9 @@
+*
+!app
+!bin/www
+!config
+!spec
+!node_modules
+!app.js
+!package.json
+!version

@@ -1,0 +1,22 @@
+{% extends "govuk_template.html" %}
+
+{% block head %}
+  {% include "layouts/head/style.html" %}
+{% endblock %}
+
+{% block cookie_message %}
+  <p>{{cookieText | safe }}</p>
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "layouts/body/propositional_navigation.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block body_end %}
+  {% include "layouts/head/scripts.html" %}
+  <!-- GOV.UK Prototype kit {{releaseVersion}} -->
+{% endblock %}

@@ -1,0 +1,21 @@
+proxy:
+  em_api: http://localhost:8083
+idam:
+  base_url: http://localhost:8081
+  s2s_url: http://localhost:8082
+  service_key: AAAAAAAAAAAAAAAA
+  service_name: em_gw
+security:
+  cors_origin_methods: "GET,POST,PUT,DELETE,OPTIONS"
+  cors_origin_whitelist: "*"
+  cors_headers: "Accept,Content-Type,Origin,Authorization"
+xfwd: true
+logging:
+  microservice: document-management-store-api-gateway-web
+  team: cc
+  environment: local
+#healthcheck:
+#  environment: docker
+#  project: evidence
+#  name: document-management-store-api-gateway-web
+#  version: unkown

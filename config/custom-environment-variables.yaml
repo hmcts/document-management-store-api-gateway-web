@@ -1,0 +1,21 @@
+proxy:
+  em_api: EM_API_URL
+idam:
+  base_url: IDAM_BASE_URL
+  s2s_url: IDAM_S2S_URL
+  service_key: IDAM_SERVICE_KEY
+  service_name: IDAM_SERVICE_NAME
+security:
+  cors_origin_methods: CORS_ORIGIN_METHODS
+  cors_origin_whitelist: CORS_ORIGIN_WHITELIST
+  cors_headers: CORS_HEADERS
+xfwd: XFWD
+logging:
+  microservice: REFORM_SERVICE_NAME
+  team: REFORM_TEAM
+  environment: REFORM_ENVIRONMENT
+#healthcheck:
+#  environment: PACKAGES_ENVIRONMENT
+#  project: PACKAGES_PROJECT
+#  name: PACKAGES_NAME
+#  version: PACKAGES_VERSION

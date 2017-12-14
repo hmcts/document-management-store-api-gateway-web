@@ -1,0 +1,19 @@
+{% extends "layouts/layout.html" %}
+
+{% block page_title %}
+{{content.title | safe}}
+{% endblock %}
+
+{% block content %}
+<!-- two_thirds_form -->
+<main id="content" role="main">
+    {% include "layouts/body/phase_banner_beta.html" %}
+    <div class="grid-row">
+        <div class="column-two-thirds">
+          {% block sub_content %}
+          {% endblock %}
+        </div>
+    </div>
+</main>
+
+{% endblock %}

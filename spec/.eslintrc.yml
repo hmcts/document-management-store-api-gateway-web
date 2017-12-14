@@ -1,0 +1,9 @@
+extends: standard
+
+plugins:
+  - jasmine
+env:
+  jasmine: true
+
+rules:
+  no-unused-expressions: off

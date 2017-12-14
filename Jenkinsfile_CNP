@@ -1,0 +1,17 @@
+#!groovy
+
+properties([
+    [
+        $class: 'GithubProjectProperty',
+        displayName: 'Document Management Store Api Gateway Web',
+        projectUrlStr: 'https://github.com/hmcts/document-management-api-gateway-web/'
+    ],
+    pipelineTriggers([
+        [$class: 'GitHubPushTrigger']
+    ])
+])
+
+@Library("Infrastructure")
+
+// Type,product,(component/service)
+withPipeline("nodejs", "dm-api-gateway-web", "frontend") {}
