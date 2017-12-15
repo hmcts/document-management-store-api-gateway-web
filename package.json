@@ -11,7 +11,7 @@
         "test": "mocha ./spec/**/*.spec.js --reporter mochawesome",
         "e2e": "echo 'e2e not implemented'",
         "test-all": "echo 'test all not implemented'",
-        "test:ally": "echo 'ally test not implemented'",
+        "test:a11y": "echo 'ally test not implemented'",
         "test:coverage": "nyc --all --reporter=lcov --reporter=text-lcov npm test && nyc check-coverage --statements 80 --lines 80",
         "test:nsp": "nsp check",
         "test:nsp-warn": "nsp check --output summary --warn-only",
@@ -21,9 +21,7 @@
         "test:codecov-upload": "codecov -f ./coverage/lcov.info",
         "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner",
         "health-check": "echo 'healthcheck not implemented'",
-        "clean": "rm -r node_modules && rm -r mochawesome-report && rm -r coverage && rm -r  .nyc_output",
-        "snyk-protect": "snyk protect",
-        "prepare": "npm run snyk-protect"
+        "clean": "rm -r node_modules && rm -r mochawesome-report && rm -r coverage && rm -r  .nyc_output"
     },
     "dependencies": {
         "@hmcts/nodejs-healthcheck": "^1.4.4",
