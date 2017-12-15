@@ -13,5 +13,8 @@ properties([
 
 @Library("Infrastructure")
 
-// Type,product,(component/service)
-withPipeline("nodejs", "dm-api-gateway-web", "frontend") {}
+def type = "nodejs"
+def product = "document-management-api-gateway-web"
+def component = "frontend"
+
+withPipeline(type , product, component) {}
