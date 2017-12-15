@@ -1,5 +1,8 @@
 FROM node:9
 
+MAINTAINER "HMCTS Evidence Team <https://github.com/hmcts>"
+LABEL maintainer="HMCTS Evidence Team <https://github.com/hmcts>"
+
 ENV NODE_ENV development
 ENV PORT 8080
 
