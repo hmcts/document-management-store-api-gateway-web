@@ -54,3 +54,4 @@ integration_test/target
 version
 package-lock.json
 yarn.lock
+!/yarn.lock
