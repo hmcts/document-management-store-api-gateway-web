@@ -19,7 +19,7 @@
         "test:smoke": "echo 'smoke test not implemented'",
         "test:codacy-upload": "cat ./coverage/lcov.info | codacy-coverage",
         "test:codecov-upload": "codecov -f ./coverage/lcov.info",
-        "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner",
+        "sonar-scan": "node_modules/sonar-scanner/bin/sonar-scanner",
         "health-check": "echo 'healthcheck not implemented'",
         "clean": "rm -r node_modules && rm -r mochawesome-report && rm -r coverage && rm -r  .nyc_output"
     },
