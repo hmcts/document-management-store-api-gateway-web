@@ -4,7 +4,7 @@ properties([
     [
         $class: 'GithubProjectProperty',
         displayName: 'Document Management Store Api Gateway Web',
-        projectUrlStr: 'https://github.com/hmcts/document-management-api-gateway-web/'
+        projectUrlStr: 'https://github.com/hmcts/document-management-store-api-gateway-web/'
     ],
     pipelineTriggers([
         [$class: 'GitHubPushTrigger']
