@@ -1,3 +1,3 @@
 output "frontend_deployment_endpoint" {
-  value = "${module.frontend.gitendpoint}"
+    value = "${module.document-management-store-api-gateway-web.gitendpoint}"
 }

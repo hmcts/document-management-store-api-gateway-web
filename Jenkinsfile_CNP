@@ -11,10 +11,10 @@ properties([
     ])
 ])
 
-@Library("Infrastructure")
+@Library("Infrastructure") _
 
 def type = "nodejs"
-def product = "document-management-store-api-gateway-web"
-def component = "frontend"
+def product = "dm"
+def component = "document-management-store-api-gateway-web"
 
 withPipeline(type , product, component) {}

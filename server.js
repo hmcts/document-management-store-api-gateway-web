@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-let app = require('../app');
+let app = require('app.js');
 let debug = require('debug')('document-management-store-api-gateway-web:server');
 let http = require('http');
 

@@ -1,6 +1,6 @@
 *
 !app
-!bin/www
+!server.js
 !config
 !spec
 !node_modules
