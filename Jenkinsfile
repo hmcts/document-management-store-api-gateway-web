@@ -140,14 +140,14 @@ node {
                 ]
             }
 
-//                stage ('Deploy and Test on Test') {
-//                    build job: 'document-deploy', parameters: [
-//                        [$class: 'StringParameterValue', name: 'BUILD_APP', value: app],
-//                        [$class: 'StringParameterValue', name: 'BUILD_VERSION', value: rpmVersion],
-//                        [$class: 'StringParameterValue', name: 'ENVIRONMENT', value: 'test']
-//                    ]
-//                    rpmTagger.tagTestingPassedOn("test")
-//                }
+                stage ('Deploy and Test on Test') {
+                    build job: 'document-deploy', parameters: [
+                        [$class: 'StringParameterValue', name: 'BUILD_APP', value: app],
+                        [$class: 'StringParameterValue', name: 'BUILD_VERSION', value: rpmVersion],
+                        [$class: 'StringParameterValue', name: 'ENVIRONMENT', value: 'test']
+                    ]
+                    //rpmTagger.tagTestingPassedOn("test")
+                }
 
         }
         notifyBuildFixed channel: channel
