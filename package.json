@@ -24,7 +24,7 @@
         "clean": "rm -r node_modules && rm -r mochawesome-report && rm -r coverage && rm -r  .nyc_output"
     },
     "dependencies": {
-        "@hmcts/nodejs-healthcheck": "^1.4.4",
+        "@hmcts/nodejs-healthcheck": "^1.4.6",
         "@hmcts/nodejs-logging": "^1.4.2",
         "config": "^1.27.0",
         "cookie-parser": "^1.4.3",
