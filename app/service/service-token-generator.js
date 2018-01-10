@@ -8,6 +8,9 @@ const idamS2SUrl = config.get('idam.s2s_url')
 const serviceName = config.get('idam.service_name')
 const secret = config.get('idam.service_key')
 
+const {logging} = require('../logging/dm-logger')
+const logger = logging.getLogger('service-token-generator.js')
+
 const cache = {}
 
 const serviceTokenGenerator = () => {
@@ -33,6 +36,16 @@ const serviceTokenGenerator = () => {
         }
 
         return token
+      })
+      .catch(error => {
+        logger.warn(JSON.stringify({
+          errorMessage: 'Non 200 status received from IDAM when getting service token.',
+          statusText: error.statusText,
+          status: error.status,
+          url: error.url,
+          stackTrace: error.stack
+        }))
+        throw error
       })
   }
 }

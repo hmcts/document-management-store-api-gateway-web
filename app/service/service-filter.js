@@ -1,4 +1,6 @@
 const serviceTokenGenerator = require('./service-token-generator')
+const {logging} = require('../logging/dm-logger')
+const logger = logging.getLogger('service-filter.js')
 
 const serviceFilter = (req, res, next) => {
   serviceTokenGenerator()
@@ -7,7 +9,9 @@ const serviceFilter = (req, res, next) => {
       next()
     })
     .catch(error => {
-      console.warn('Unsuccessful S2S authentication', error)
+      logger.warn(JSON.stringify({
+        error: 'Unsuccessful S2S authentication'
+      }))
       next({
         status: error.status || 401
       })

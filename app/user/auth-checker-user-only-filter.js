@@ -1,4 +1,6 @@
 const userRequestAuthorizer = require('./user-request-authorizer')
+const {logging} = require('../logging/dm-logger')
+const logger = logging.getLogger('auth-checker-user-only-filter.js')
 
 const authCheckerUserOnlyFilter = (req, res, next) => {
   if (req.originalUrl.startsWith('/swagger-ui.html') ||
@@ -20,8 +22,9 @@ const authCheckerUserOnlyFilter = (req, res, next) => {
       })
       .then(() => next())
       .catch(error => {
-        console.warn('Unsuccessful user authentication', error)
-        error.status = error.status || 401
+        logger.warn('Unsuccessful user authentication')
+        // Just return 401 as idam returns 400 for bad token.
+        error.status = 401
         next(error)
       })
   }

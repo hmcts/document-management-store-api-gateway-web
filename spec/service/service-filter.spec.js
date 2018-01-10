@@ -5,24 +5,36 @@ const expect = chai.expect
 const sinonChai = require('sinon-chai')
 chai.use(sinonChai)
 
-describe('ServiceTokenGenerator', () => {
-  let fetch
-
-  let serviceTokenGenerator
+describe('ServiceFilter', () => {
+  let serviceFilter,
+    serviceTokenGenerator,
+    req,
+    res
 
   beforeEach(() => {
-    fetch = sinon.stub()
+    req = {
+      headers: {}
+    }
+    res = {}
 
-    serviceTokenGenerator = proxyquire('../../app/service/service-token-generator', {
-      '../util/fetch': fetch
+    serviceTokenGenerator = sinon.stub()
+
+    serviceFilter = proxyquire('../../app/service/service-filter', {
+      './service-token-generator': serviceTokenGenerator
     })
   })
 
-  it('should generate a token', () => {
-    const encodedToken = 'eyJhbGciOiJIUzI1NiJ9.eyJleHAiOiIxMjM0NTY3ODkwIn0.hv-j-ab0bWQWoLgKp7Avq3GAHbQ54qNDM63FkgQOmaM'
-    fetch.returns(Promise.resolve({text: () => encodedToken}))
-    serviceTokenGenerator()
-      .then(token => expect(token).to.equal(encodedToken))
-      .catch(err => console.log(err))
+  it('add the service token as a header', () => {
+    serviceTokenGenerator.returns(Promise.resolve('token'))
+    serviceFilter(req, res, () => {
+      expect(req.headers.ServiceAuthorization = 'token')
+    })
+  })
+
+  it('add error status if problems generating token', () => {
+    serviceTokenGenerator.returns(Promise.reject({status: 403})) // eslint-disable-line prefer-promise-reject-errors
+    serviceFilter(req, res, (err) => {
+      expect(err.status = 403)
+    })
   })
 })
