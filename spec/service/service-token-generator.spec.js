@@ -27,12 +27,11 @@ describe('ServiceTokenGenerator', () => {
   })
 
   it('should log error', () => {
-    const encodedToken = 'eyJhbGciOiJIUzI1NiJ9.eyJleHAiOiIxMjM0NTY3ODkwIn0.hv-j-ab0bWQWoLgKp7Avq3GAHbQ54qNDM63FkgQOmaM'
-    fetch.returns(Promise.reject({
-          statusText: 'Bad request',
-          status: 400,
-          url: 'localhost:idam'
-      }))
-    serviceTokenGenerator();
+    fetch.returns(Promise.reject(new Error({
+      statusText: 'Bad request',
+      status: 400,
+      url: 'localhost:idam'
+    })))
+    serviceTokenGenerator()
   })
 })

@@ -17,7 +17,8 @@ const getTokenDetails = (jwt) => {
         errorMessage: 'Non 200 status received from IDAM when authenticating user. Is your token valid?',
         statusText: error.statusText,
         status: error.status,
-        url: error.url
+        url: error.url,
+        stackTrace: error.stack
       }))
       throw error
     })

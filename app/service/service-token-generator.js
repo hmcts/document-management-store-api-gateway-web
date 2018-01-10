@@ -42,7 +42,8 @@ const serviceTokenGenerator = () => {
           errorMessage: 'Non 200 status received from IDAM when getting service token.',
           statusText: error.statusText,
           status: error.status,
-          url: error.url
+          url: error.url,
+          stackTrace: error.stack
         }))
         throw error
       })
