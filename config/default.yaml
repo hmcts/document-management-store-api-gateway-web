@@ -12,7 +12,7 @@ security:
 xfwd: true
 logging:
   microservice: document-management-store-api-gateway-web
-  team: cc
+  team: evidence
   environment: local
 #healthcheck:
 #  environment: docker
