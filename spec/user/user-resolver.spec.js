@@ -30,4 +30,15 @@ describe('User Resolver', () => {
       })
       .catch(err => console.log(err))
   })
+
+  it('should log error', () => {
+    fetch.returns(Promise.resolve(new Error({
+      statusText: 'Bad request',
+      status: 400,
+      url: 'localhost:idam'
+    })))
+
+    userResolver.getTokenDetails('token')
+      .catch(err => console.log(err))
+  })
 })
