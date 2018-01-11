@@ -22,9 +22,10 @@ const authCheckerUserOnlyFilter = (req, res, next) => {
       })
       .then(() => next())
       .catch(error => {
-        logger.warn('Unsuccessful user authentication')
+        let logEntry = (error.error ? JSON.stringify(error) : 'Unsuccessful user authentication')
+        logger.warn(logEntry)
         // Just return 401 as idam returns 400 for bad token.
-        error.status = 401
+        error.status = error.status && error.status !== 400 ? error.status : 401
         next(error)
       })
   }
