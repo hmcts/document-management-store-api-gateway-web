@@ -33,8 +33,9 @@ String rpmTagger
 String rpmVersion
 String version
 
-try {
-    node {
+
+node {
+    try {
         stage('Checkout') {
             deleteDir()
             checkout scm
@@ -159,9 +160,9 @@ try {
         }
         notifyBuildFixed channel: channel
     }
-} catch(e) {
-    sh "echo I failed"
-    e.printStackTrace()
-    notifyBuildFailure channel: channel
-    throw e
+    catch(e) {
+        sh "echo I failed"
+        notifyBuildFailure channel: channel
+        throw e
+    }
 }
