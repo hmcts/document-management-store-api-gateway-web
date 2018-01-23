@@ -21,22 +21,21 @@ import uk.gov.hmcts.Versioner
 
 def channel = '#dm-pipeline'
 
-def product = "evidence"
 def app = "document-management-store-api-gateway-web"
 def artifactorySourceRepo = "evidence-local"
 
 def ansible = new Ansible(this, 'dm')
 def artifactory = new Artifactory(this)
-def packager = new Packager(this, product)
+def packager = new Packager(this, 'evidence')
 def versioner = new Versioner(this)
 
 def rpmTagger
 def rpmVersion
 def version
 
-
 node {
     try {
+
         stage('Checkout') {
             deleteDir()
             checkout scm
@@ -162,7 +161,6 @@ node {
         notifyBuildFixed channel: channel
     }
     catch(e) {
-        sh "echo I failed"
         notifyBuildFailure channel: channel
         throw e
     }
