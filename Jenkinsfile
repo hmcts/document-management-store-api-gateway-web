@@ -129,7 +129,7 @@ try {
             }
 
             stage('Deploy on Dev') {
-                ansible.run("{}", "dev", "deploy.yml")
+                ansible.run("{}", "dev", "deploy_gw_web.yml")
                 rpmTagger.tagDeploymentSuccessfulOn('dev')
             }
 
@@ -141,7 +141,7 @@ try {
             }
 
             stage('Deploy on Test') {
-                ansible.run("{}", "test", "deploy.yml")
+                ansible.run("{}", "test", "deploy_gw_web.yml")
 //                rpmTagger.tagDeploymentSuccessfulOn('test')
             }
 
@@ -153,7 +153,7 @@ try {
             }
 
             stage('Deploy on Demo') {
-                ansible.run("{}", "demo", "deploy.yml")
+                ansible.run("{}", "demo", "deploy_gw_web.yml")
 //                rpmTagger.tagDeploymentSuccessfulOn('demo')
             }
         }
