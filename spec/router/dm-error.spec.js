@@ -8,7 +8,7 @@ chai.use(sinonChai)
 const errorHandler = require('../../app/router/dm-error')
 
 describe('dm error', () => {
-  let err, req, res, format
+  let err, req, res, format, contentType
 
   beforeEach(() => {
     err = {}
@@ -19,6 +19,9 @@ describe('dm error', () => {
       format: toFormat => {
         format = toFormat
         return null
+      },
+      contentType: aContentType => {
+        contentType = aContentType
       },
       locals: {}
     }
@@ -65,6 +68,24 @@ describe('dm error', () => {
 
     describe('when the content type is not text/html', () => {
       beforeEach(() => {
+        format['*/*']()
+      })
+
+      it('should call json with the error', () => {
+        res.json.should.have.been.calledWith(err)
+      })
+
+      it('should not call render', () => {
+        res.render.should.not.have.been.called
+      })
+
+      it('should have a content tpe of application/json', () => {
+        expect(contentType).to.equal('application/json')
+      })
+    })
+
+    describe('when the content type is not text/html', () => {
+      beforeEach(() => {
         format.default()
       })
 
@@ -74,6 +95,10 @@ describe('dm error', () => {
 
       it('should not call render', () => {
         res.render.should.not.have.been.called
+      })
+
+      it('should have a content type of application/json', () => {
+        expect(contentType).to.equal('application/json')
       })
     })
   })
