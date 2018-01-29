@@ -1,3 +1,8 @@
+function formatJsonError (res, err) {
+  res.contentType('application/json')
+  res.json(err)
+}
+
 const dmErrorHandle = (err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.asset_path = '/public/'
@@ -12,8 +17,11 @@ const dmErrorHandle = (err, req, res, next) => {
     'text/html': function () {
       res.render('errors/error', err)
     },
-    default: function () {
-      res.json(err)
+    '*/*': function () {
+      formatJsonError(res, err)
+    },
+    'default': function () {
+      formatJsonError(res, err)
     }
   })
 }
