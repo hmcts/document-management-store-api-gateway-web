@@ -34,6 +34,9 @@ const authorise = (request) => {
   return userResolver
     .getTokenDetails(bearerToken)
     .then(tokenDetails => {
+      if (!tokenDetails.id) {
+        throw new Error('No user ID returned from IDAM')
+      }
       user = tokenDetails
       return null
     })

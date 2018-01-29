@@ -66,6 +66,17 @@ describe('UserRequestAuthorizer', () => {
         })
     })
 
+    it('should exception if id is missing', done => {
+      userResolver.getTokenDetails.returns(Promise.resolve({}))
+
+      userRequestAuthorizer.authorise(request)
+        .then(() => fail('Promise should have been rejected'))
+        .catch(error => {
+          expect(error.message).to.contain('ID')
+          done()
+        })
+    })
+
     xit('should reject when roles do not match', done => {
       authorizedRolesExtractor.extract.returns(['no-match'])
 

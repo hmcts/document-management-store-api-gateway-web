@@ -20,14 +20,43 @@ describe('Auth Checker User Only Filter', () => {
   })
 
   it('should add user to req', (done) => {
-    const req = {originalUrl: '/documents'}
+    const req = {originalUrl: '/documents', headers: {}}
     const res = {}
+    const user = {id: '12345', roles: []}
     const next = () => {
-      expect(req.authentication.user).to.equal('12345')
+      expect(req.authentication.user).to.equal(user)
       done()
     }
 
-    userRequestAuthorizer.authorise.returns(Promise.resolve('12345'))
+    userRequestAuthorizer.authorise.returns(Promise.resolve(user))
+
+    filter(req, res, next)
+  })
+
+  it('should add userId to req header', (done) => {
+    const req = {originalUrl: '/documents', headers: {}}
+    const res = {}
+    const user = {id: '12345', roles: []}
+    const next = () => {
+      expect(req.headers['user-id']).to.equal(user.id)
+      done()
+    }
+
+    userRequestAuthorizer.authorise.returns(Promise.resolve(user))
+
+    filter(req, res, next)
+  })
+
+  it('should add roles to req header', (done) => {
+    const req = {originalUrl: '/documents', headers: {}}
+    const res = {}
+    const user = {id: '12345', roles: ['case-worker', 'citizen']}
+    const next = () => {
+      expect(req.headers['user-roles']).to.equal('case-worker,citizen')
+      done()
+    }
+
+    userRequestAuthorizer.authorise.returns(Promise.resolve(user))
 
     filter(req, res, next)
   })

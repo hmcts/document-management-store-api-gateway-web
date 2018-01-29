@@ -18,6 +18,8 @@ const authCheckerUserOnlyFilter = (req, res, next) => {
       .authorise(req)
       .then(user => {
         req.authentication.user = user
+        req.headers['user-id'] = user.id
+        req.headers['user-roles'] = user.roles.join(',')
         return null
       })
       .then(() => next())
