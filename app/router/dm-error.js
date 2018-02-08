@@ -1,8 +1,8 @@
 function formatJsonError (res, err) {
   res.contentType('application/json')
   res.json({
-      statusText: err.statusText,
-      status: err.status
+    statusText: err.statusText,
+    status: err.status
   })
 }
 
