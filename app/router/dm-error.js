@@ -1,6 +1,9 @@
 function formatJsonError (res, err) {
   res.contentType('application/json')
-  res.json(err)
+  res.json({
+      statusText: err.statusText,
+      status: err.status
+  })
 }
 
 const dmErrorHandle = (err, req, res, next) => {
