@@ -1,6 +1,10 @@
 function formatJsonError (res, err) {
   res.contentType('application/json')
-  res.json(err)
+  res.json({
+    statusText: err.statusText,
+    error: err.error,
+    status: err.status
+  })
 }
 
 const dmErrorHandle = (err, req, res, next) => {
@@ -10,7 +14,7 @@ const dmErrorHandle = (err, req, res, next) => {
   // render the error page
   const status = isNaN(err.status) ? 500 : err.status
   if (status >= 500) {
-    err.error = 'Internal Server Error'
+    err.statusText = err.error = 'Internal Server Error'
   }
   res.status(status)
   res.format({

@@ -49,7 +49,7 @@ describe('dm error', () => {
     })
 
     it('should set the error to Internal Server Error', () => {
-      expect(err.error).to.equal('Internal Server Error')
+      expect(err.statusText).to.equal('Internal Server Error')
     })
 
     describe('when the content type is text/html', () => {
