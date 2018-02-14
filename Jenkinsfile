@@ -143,19 +143,19 @@ node {
 
             stage('Deploy on Test') {
                 ansible.run("{}", "test", "deploy_gw_web.yml")
-//                rpmTagger.tagDeploymentSuccessfulOn('test')
+                rpmTagger.tagDeploymentSuccessfulOn('test')
             }
 
             stage('IT on Test') {
                 build job: 'evidence/integration-tests-pipeline/master', parameters: [
                     [$class: 'StringParameterValue', name: 'ENVIRONMENT', value: "test"]
                 ]
-//                rpmTagger.tagTestingPassedOn('test')
+                rpmTagger.tagTestingPassedOn('test')
             }
 
             stage('Deploy on Demo') {
                 ansible.run("{}", "demo", "deploy_gw_web.yml")
-//                rpmTagger.tagDeploymentSuccessfulOn('demo')
+                rpmTagger.tagDeploymentSuccessfulOn('demo')
             }
         }
         notifyBuildFixed channel: channel
