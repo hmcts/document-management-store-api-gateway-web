@@ -17,4 +17,12 @@ def type = "nodejs"
 def product = "dm"
 def component = "document-management-store-api-gateway-web"
 
-withPipeline(type , product, component) {}
+def channel = '#dm-pipeline'
+
+withPipeline(type , product, component) {
+
+    after('checkout') {
+        echo '${component} out'
+    }
+    enableSlackNotifications(channel)
+}
