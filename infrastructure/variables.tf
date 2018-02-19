@@ -1,29 +1,105 @@
 variable "product" {
-    type    = "string"
+    type = "string"
     default = "dm"
-    description           = "The name of your application"
+    description = "The name of your application"
 }
 
+variable "app_name" {
+    default = "api-gateway"
+}
+
+variable "app_type" {
+    default = "web"
+}
+
+variable "team_name" {
+    default = "evidence"
+}
+
+variable "app_language" {
+    default = "node"
+}
 
 variable "location" {
-    type                  = "string"
-    default               = "UK South"
+    type = "string"
+    default = "UK South"
 }
 
 variable "env" {
-    type                  = "string"
-    description           = "(Required) The environment in which to deploy the application infrastructure."
+    type = "string"
+    description = "(Required) The environment in which to deploy the application infrastructure."
 }
 
-variable "ilbIp" {}
-
-/* variable "tenant_id" {
-  type                  = "string"
-  description           = "(Required) The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. This is usually sourced from environemnt variables and not normally required to be specified."
+variable "subscription" {
+    type = "string"
 }
-variable "object_id" {
-  type                  = "string"
-  description           = "(Required) The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. This is usually sourced from environemnt variables and not normally required to be specified."
-} */
 
-variable "subscription" {}
+variable "ilbIp"{
+
+}
+
+variable "tenant_id" {
+
+}
+
+variable "jenkins_AAD_objectId" {
+    type                        = "string"
+    description                 = "(Required) The Azure AD object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies."
+}
+
+////////////////////////////////////////////////
+//Addtional Vars ///////////////////////////////
+////////////////////////////////////////////////
+
+////////////////////////////////////////////////
+// Endpoints
+////////////////////////////////////////////////
+variable "idam-api-url" {
+    default = "http://betaDevBccidamAppLB.reform.hmcts.net:80"
+}
+
+variable "s2s-url" {
+    default = "http://betaDevBccidamS2SLB.reform.hmcts.net:80"
+}
+
+variable "dm-store-app-url" {
+    default = "dm-store-app"
+}
+
+////////////////////////////////////////////////
+// Logging
+////////////////////////////////////////////////
+variable "root_appender" {
+    default = "JSON_CONSOLE"
+}
+
+variable "json_console_pretty_print" {
+    default = "false"
+}
+
+variable "log_output" {
+    default = "single"
+}
+
+////////////////////////////////////////////////
+// Toggle Features
+////////////////////////////////////////////////
+
+////////////////////////////////////////////////
+//// Whitelists
+////////////////////////////////////////////////
+variable "cors_origin_methods" {
+    default = "GET,POST,PUT,PATCH,DELETE,OPTIONS"
+}
+variable "cors_origin_whitelist" {
+    default = "*"
+}
+////////////////////////////////////////////////
+// Addtional
+////////////////////////////////////////////////
+variable "idam-service-key" {
+    default = ""
+}
+variable "idam-service-name" {
+    default = ""
+}
