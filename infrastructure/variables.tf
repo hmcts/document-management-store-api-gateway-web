@@ -54,15 +54,15 @@ variable "jenkins_AAD_objectId" {
 ////////////////////////////////////////////////
 // Endpoints
 ////////////////////////////////////////////////
-variable "idam-api-url" {
+variable "idam_api_url" {
     default = "http://betaDevBccidamAppLB.reform.hmcts.net:80"
 }
 
-variable "s2s-url" {
+variable "s2s_url" {
     default = "http://betaDevBccidamS2SLB.reform.hmcts.net:80"
 }
 
-variable "dm-store-app-url" {
+variable "dm_store_app_url" {
     default = "dm-store-app"
 }
 
@@ -97,9 +97,9 @@ variable "cors_origin_whitelist" {
 ////////////////////////////////////////////////
 // Addtional
 ////////////////////////////////////////////////
-variable "idam-service-key" {
+variable "idam_service_key" {
     default = ""
 }
-variable "idam-service-name" {
+variable "idam_service_name" {
     default = ""
 }
