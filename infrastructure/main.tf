@@ -49,6 +49,7 @@ module "key-vault" {
   product_group_object_id = "5d9cd025-a293-4b97-a0e5-6f43efce02c0"
 }
 
+
 # module "redis-cache" {
 # source = "git@github.com:contino/moj-module-redis?ref=master"
 # product = "${var.product}"
