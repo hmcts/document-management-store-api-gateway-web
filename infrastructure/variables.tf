@@ -5,7 +5,7 @@ variable "product" {
 }
 
 variable "app_name" {
-    default = "api-gateway"
+    default = "api-gw"
 }
 
 variable "app_type" {
