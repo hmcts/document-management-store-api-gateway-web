@@ -101,5 +101,5 @@ variable "idam_service_key" {
     default = ""
 }
 variable "idam_service_name" {
-    default = ""
+    default = "em_gw"
 }

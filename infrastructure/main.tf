@@ -1,6 +1,8 @@
 locals {
   app_full_name = "${var.product}-${var.app_name}-${var.app_type}"
   ase_name = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
+//  vault_section = "${var.env == "prod" ? "prod" : "test"}"
+  vault_section = "test"
 }
 # "${local.ase_name}"
 # "${local.app_full_name}"
@@ -41,11 +43,19 @@ module "app" {
     EM_API_URL = "http://${var.dm_store_app_url}-${var.env}.service.${local.ase_name}.internal"
     IDAM_BASE_URL = "${var.idam_api_url}"
     IDAM_S2S_URL = "${var.s2s_url}"
-    IDAM_SERVICE_KEY = "${var.idam_service_key}"
+    IDAM_SERVICE_KEY = "${data.vault_generic_secret.s2s_secret.data["value"]}"
     IDAM_SERVICE_NAME = "${var.idam_service_name}"
     CORS_ORIGIN_METHODS = "${var.cors_origin_methods}"
     CORS_ORIGIN_WHITELIST = "${var.cors_origin_whitelist}"
   }
+}
+
+provider "vault" {
+  address = "https://vault.reform.hmcts.net:6200"
+}
+
+data "vault_generic_secret" "s2s_secret" {
+  path = "secret/${local.vault_section}/ccidam/service-auth-provider/api/microservice-keys/em-gw"
 }
 
 module "key_vault" {
