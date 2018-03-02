@@ -2,7 +2,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/hmcts/document-management-store-api-gateway-web.svg?branch=master)](https://travis-ci.org/hmcts/document-management-store-api-gateway-web)
 [![codecov](https://codecov.io/gh/hmcts/document-management-store-api-gateway-web/branch/master/graph/badge.svg)](https://codecov.io/gh/hmcts/document-management-store-api-gateway-web)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7cb6c8ab14544a8ab1ac44de59d8e30a)](https://www.codacy.com/app/HMCTS/document-management-store-api-gateway-web)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1c57e8cad298447d83164461f1c75f8d)](https://www.codacy.com/app/HMCTS/document-management-store-api-gateway-web)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/1c57e8cad298447d83164461f1c75f8d)](https://www.codacy.com/app/HMCTS/document-management-store-api-gateway-web)
 [![Known Vulnerabilities](https://snyk.io/test/github/hmcts/document-management-store-api-gateway-web/badge.svg)](https://snyk.io/test/github/hmcts/document-management-store-api-gateway-web)
 
 Document Management Api Gateway is a front service to interface with the backend [Document Management Store App](https://github.com/hmcts/document-management-store-app) to allow the storage and retrieval of documents from a web browser.
