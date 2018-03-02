@@ -16,9 +16,9 @@ script:
   - yarn lint
   - yarn test:nsp-warn
   - yarn test
+  - yarn test:coverage
 #  - yarn test:routes
 #  - yarn test:a11y
-  - yarn test:coverage
 after_success:
   - yarn test:codacy-upload
   - yarn test:codecov-upload
