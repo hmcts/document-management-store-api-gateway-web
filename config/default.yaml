@@ -1,5 +1,5 @@
 proxy:
-  em_api: http://localhost:8083
+  em_api: http://localhost:4603
 idam:
   base_url: http://localhost:8081
   s2s_url: http://localhost:8082
@@ -11,7 +11,7 @@ security:
   cors_headers: "Accept,Content-Type,Origin,Authorization"
 xfwd: true
 logging:
-  microservice: document-management-store-api-gateway-web
+  microservice: dm-api-gw-web
   team: evidence
   environment: local
 #healthcheck:

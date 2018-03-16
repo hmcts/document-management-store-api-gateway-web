@@ -1,5 +1,5 @@
 const serviceTokenGenerator = require('./service-token-generator')
-const {logging} = require('../logging/dm-logger')
+const {logging} = require('../logging/logger')
 const logger = logging.getLogger('service-filter.js')
 
 const serviceFilter = (req, res, next) => {

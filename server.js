@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-let app = require('app.js');
+let app = require('./app.js');
 let debug = require('debug')('document-management-store-api-gateway-web:server');
 let http = require('http');
 
@@ -12,7 +12,7 @@ let http = require('http');
  * Get port from environment and store in Express.
  */
 
-let port = normalizePort(process.env.PORT || '8080');
+let port = normalizePort(process.env.PORT || '3603')
 app.set('port', port);
 
 /**

@@ -1,7 +1,7 @@
-FROM node:9
+FROM node:8.1.4
 
 MAINTAINER "HMCTS Evidence Team <https://github.com/hmcts>"
-LABEL maintainer="HMCTS Evidence Team <https://github.com/hmcts>"
+LABEL maintainer = "HMCTS Evidence Team <https://github.com/hmcts>"
 
 ENV NODE_ENV development
 ENV PORT 8080
@@ -13,14 +13,14 @@ ENV XFWD true
 ENV ROOT_APPENDER JSON_CONSOLE
 ENV LOG_OUTPUT single
 ENV JSON_CONSOLE_PRETTY_PRINT false
-ENV REFORM_SERVICE_TYPE document-management-store-api-gateway-web
+ENV REFORM_SERVICE_TYPE dm-api-gw-web
 ENV REFORM_SERVICE_NAME JSON_CONSOLE
 ENV REFORM_TEAM cc
 ENV REFORM_ENVIRONMENT docker
 #      healthcheck env vars
 ENV PACKAGES_ENVIRONMENT docker
 ENV PACKAGES_PROJECT evidence
-ENV PACKAGES_NAME document-management-store-api-gateway-web
+ENV PACKAGES_NAME dm-api-gw-web
 
 # Create app directory
 WORKDIR /usr/src/app

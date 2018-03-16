@@ -5,7 +5,7 @@ var sinonChai = require('sinon-chai')
 chai.should()
 chai.use(sinonChai)
 
-const errorHandler = require('../../app/router/dm-error')
+const errorHandler = require('../../app/router/error')
 
 describe('dm error', () => {
   let err, req, res, format, contentType

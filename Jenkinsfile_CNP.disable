@@ -23,7 +23,7 @@ withPipeline(type , product, component) {
     after('checkout') {
         echo '${component} out'
     }
-    
+
     after('build') {
       sh 'yarn setup'
     }
