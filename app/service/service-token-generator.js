@@ -8,7 +8,7 @@ const idamS2SUrl = config.get('idam.s2s_url')
 const serviceName = config.get('idam.service_name')
 const secret = config.get('idam.service_key')
 
-const {logging} = require('../logging/dm-logger')
+const {logging} = require('../logging/logger')
 const logger = logging.getLogger('service-token-generator.js')
 
 const cache = {}

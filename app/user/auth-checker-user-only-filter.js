@@ -1,5 +1,5 @@
 const userRequestAuthorizer = require('./user-request-authorizer')
-const {logging} = require('../logging/dm-logger')
+const {logging} = require('../logging/logger')
 const logger = logging.getLogger('auth-checker-user-only-filter.js')
 
 const authCheckerUserOnlyFilter = (req, res, next) => {

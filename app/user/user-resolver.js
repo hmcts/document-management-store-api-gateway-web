@@ -1,7 +1,7 @@
 const config = require('config')
 const fetch = require('../util/fetch')
 
-const {logging} = require('../logging/dm-logger')
+const {logging} = require('../logging/logger')
 const logger = logging.getLogger('user-resolver.js')
 
 const getTokenDetails = (jwt) => {

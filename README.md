@@ -22,16 +22,12 @@ git clone https://github.com/hmcts/document-management-store-api-gateway-web.git
 cd document-management-store-api-gateway-web
 ./buildrundm-native.sh
 ```
-The open endpoint is at http://localhost:8080
-
 ### Run Locally with Docker (Includes Backend Services)
 ```bash
 git clone https://github.com/hmcts/document-management-store-api-gateway-web.git
 cd document-management-store-api-gateway-web
 ./buildrundm-docker.sh
 ```
-The open endpoint is at http://localhost:8080
-
 ## Config
 
 Configuration is achieved through [node-config](https://github.com/lorenwest/node-config).

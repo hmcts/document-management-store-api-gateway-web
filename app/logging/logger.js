@@ -9,7 +9,7 @@ checkDefaultEnv('JSON_CONSOLE_PRETTY_PRINT', true)
 // Setup Default Logging and logger (use logger.info to log)
 const logging = require('@hmcts/nodejs-logging')
 logging.config(config.get('logging'))
-const logger = logging.getLogger('dm-logger.js')
+const logger = logging.getLogger('logger.js')
 
 module.exports = {
   logging: logging,

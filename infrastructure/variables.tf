@@ -1,7 +1,6 @@
 variable "product" {
     type = "string"
     default = "dm"
-    description = "The name of your application"
 }
 
 variable "app_name" {

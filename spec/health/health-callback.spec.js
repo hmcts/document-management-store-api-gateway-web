@@ -1,7 +1,7 @@
 const chai = require('chai')
 const expect = chai.expect
 
-const callback = require('../../app/health/dm-store-health-callback')
+const callback = require('../../app/health/health-callback')
 
 describe('dm-store-health-callback', () => {
   let err, res, callbackResponse
